@@ -41,6 +41,7 @@ if playground {
     if playground {
         var student = Student()
         teacher.student = student
+        student.teacher = teacher
     }
     
     
