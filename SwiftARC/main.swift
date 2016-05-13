@@ -12,10 +12,14 @@ var playground = true
 
 class Student {
     
-    var teacher : Teacher?
+    unowned let teacher : Teacher
     
     deinit {
         print("goodbye student")
+    }
+    
+    init(teacher: Teacher) {
+        self.teacher = teacher
     }
     
 }
@@ -23,7 +27,11 @@ class Student {
 
 class Teacher {
     
-    var student : Student?
+    var student : Student!
+    
+    init() {
+        self.student = Student(teacher: self)
+    }
     
     deinit {
         print("goodbye teacher")
@@ -39,9 +47,9 @@ if playground {
     
     
     if playground {
-        var student = Student()
+        var student = Student(teacher: teacher)
         teacher.student = student
-        student.teacher = teacher
+
     }
     
     
